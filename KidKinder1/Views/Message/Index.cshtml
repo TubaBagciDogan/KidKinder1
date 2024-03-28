@@ -1,0 +1,76 @@
+﻿@model List<KidKinder1.Entities.Contact>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+@{ var status = "";}
+@{ var statuscolor = "";}
+<div class="pcoded-inner-content">
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-body start -->
+            <div class="page-body">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Gelen Mesajlar</h5>
+                        <span>Mesajlar ile ilgili işlemleri yapabileceğiniz alandır.</span>
+                        <div class="card-header-right">
+                            <ul class="list-unstyled card-option">
+                                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                <li><i class="fa fa-window-maximize full-card"></i></li>
+                                <li><i class="fa fa-minus minimize-card"></i></li>
+                                <li><i class="fa fa-refresh reload-card"></i></li>
+                                <li><i class="fa fa-trash close-card"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-block table-border-style">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Ad Soyad</th>
+                                        <th>Email</th>
+                                        <th>Konu</th>
+                                        <th>Durum</th>
+                                        <th>Mesajı Oku</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        if (item.IsRead == true)
+                                        {
+                                            status = "Okundu";
+                                            statuscolor = "text-success";
+                                        }
+                                        else
+                                        {
+                                            status = "Okunmadı";
+                                            statuscolor = "text-danger";
+                                        }
+                                        <tr>
+                                            <td>@item.ContactId</td>
+                                            <td>@item.NameSurname</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.Subject</td>
+                                            <td><span class="@statuscolor">@status</span></td>
+
+                                            <td><a href="/Message/EditMessage/@item.ContactId" class="btn btn-primary">Mesajı Oku</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

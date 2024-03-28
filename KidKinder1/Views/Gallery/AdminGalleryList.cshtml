@@ -1,0 +1,62 @@
+﻿@model List<KidKinder1.Entities.Gallery>
+@{
+    ViewBag.Title = "AdminGalleryList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="pcoded-inner-content">
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-body start -->
+            <div class="page-body">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Galeri</h5>
+                        <span>Galeri ile ilgili işlemleri yapabileceğiniz alandır.</span>
+                        <div class="card-header-right">
+                            <ul class="list-unstyled card-option">
+                                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                <li><i class="fa fa-window-maximize full-card"></i></li>
+                                <li><i class="fa fa-minus minimize-card"></i></li>
+                                <li><i class="fa fa-refresh reload-card"></i></li>
+                                <li><i class="fa fa-trash close-card"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-block table-border-style">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Resim</th>
+                                        <th>Durum</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.GalleryId</td>
+                                            <td><img src="@item.ImageUrl" height="200px" /></td>
+                                            <td>
+                                                <a class="btn btn-primary btn-sm  @(item.Status==true? "btn-danger":"btn-success")"
+                                                   href="/Gallery/AdminGalleryDelete/@item.GalleryId">
+                                                    @(item.Status==true? "Pasif Yap" : "Aktif Yap")
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <a href="/Gallery/AdminAddGallery/" class="btn btn-primary">Yeni Resim Girişi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

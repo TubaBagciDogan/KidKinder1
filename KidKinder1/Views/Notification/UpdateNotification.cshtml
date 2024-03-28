@@ -1,0 +1,70 @@
+﻿@model KidKinder1.Entities.Notification
+@{
+    ViewBag.Title = "UpdateNotification";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="pcoded-inner-content">
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+
+            <!-- Page body start -->
+            <div class="page-body">
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!-- Basic Form Inputs card start -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Yeni Bildirim Girişi</h5>
+                                <span>Bildirimler ile ilgili verileri Eksiksiz olarak doldurunuz</span>
+                            </div>
+                            <div class="card-block">
+
+                                <form method="post">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Bildirm Id</label>
+
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.NotificationId, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Başlık</label>
+
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Bildirim Görseli</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Açıklama</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Bildirim Tarihi</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.NotificationDate, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary">Bildirimleri Güncelle</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
